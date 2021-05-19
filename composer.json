@@ -74,7 +74,10 @@
         }
     ],
     "extra": {
-        "magento-force": "override"
+        "magento-force": "override",
+        "grumphp": {
+            "config-default-path": "./grumphp.yml"
+        }
     }
 }
 
