@@ -63,7 +63,7 @@ class Factory
     public function create($pathName)
     {
         $sxml = $this->loadXml($pathName);
-        if ($sxml->project) {
+        if (isset($sxml->project)) {
             return new CloverReport($sxml);
         }
         throw new \RuntimeException('Unsupported coverage report format.');
@@ -85,7 +85,8 @@ class Factory
         libxml_use_internal_errors($mode);
 
         if ($sxml === false) {
-            throw new \RuntimeException(trim(libxml_get_last_error()->message));
+            $xmlError = libxml_get_last_error();
+            throw new \RuntimeException($xmlError ? trim($xmlError->message) : 'Unknown error');
         }
         return $sxml;
     }

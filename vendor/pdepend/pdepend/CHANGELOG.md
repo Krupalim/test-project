@@ -1,3 +1,43 @@
+#pdepend-2.9.0 (2021/04/15)
+
+- Added [\#519](https://github.com/pdepend/pdepend/issues/519): Support PHP 7.2 trailing commas in grouped use declarations
+- Added [\#518](https://github.com/pdepend/pdepend/issues/518): Support PHP 8 `static` type hint
+- Added [\#522](https://github.com/pdepend/pdepend/issues/522): Support PHP 8 `null` and `false` type hint
+- Added [\#516](https://github.com/pdepend/pdepend/issues/516): Support PHP 8 catch without variable
+- Fixed [\#527](https://github.com/pdepend/pdepend/issues/527): Allow nested arrays in PHP 8 attributes
+
+pdepend-2.9.0 (2021/03/11)
+==========================
+
+- Added [\#496](https://github.com/pdepend/pdepend/issues/496) Support PHP 8 Match expression
+- Added [\#494](https://github.com/pdepend/pdepend/issues/494) Support PHP 8 Constructor property promotion
+- Added [\#492](https://github.com/pdepend/pdepend/issues/492) Support PHP 8 Named arguments
+- Added [\#493](https://github.com/pdepend/pdepend/issues/493) Support PHP 8 Attributes
+- Added [\#495](https://github.com/pdepend/pdepend/issues/495) Support PHP 8 Union types
+- Added [\#497](https://github.com/pdepend/pdepend/issues/497) Support PHP 8 Nullsafe operator
+- Added [\#491](https://github.com/pdepend/pdepend/issues/491) Support PHP 8 tokens changes
+- Fixed [\#490](https://github.com/pdepend/pdepend/pull/490) Preserve short open tags
+- Fixed [\#480](https://github.com/pdepend/pdepend/pull/480), [\#486](https://github.com/pdepend/pdepend/pull/486) and [\#513](https://github.com/pdepend/pdepend/pull/513) PHPDoc blocks
+- Changed [\#500](https://github.com/pdepend/pdepend/issues/500) Switch to GitHub Actions
+- Changed [\#511](https://github.com/pdepend/pdepend/pull/511) Run PHPStan in GitHub actions
+- Changed [\#489](https://github.com/pdepend/pdepend/pull/489) Add unit tests for Application class
+- Removed [\#488](https://github.com/pdepend/pdepend/pull/488) Removed changes.xml legacy file
+
+pdepend-2.8.0 (2020/05/25)
+==========================
+
+- Added [\#458](https://github.com/pdepend/pdepend/pull/458) Support trait insteadof overrides. (Issue [\#367](https://github.com/pdepend/pdepend/issues/367) and [\#320](https://github.com/pdepend/pdepend/issues/320) )
+- Added [\#466](https://github.com/pdepend/pdepend/pull/466) Allow to configure file cache ttl in configuration file. (Issue [\#465](https://github.com/pdepend/pdepend/issues/465))
+- Added [\#487](https://github.com/pdepend/pdepend/pull/484) Support arrow functions return type hints.
+- Fixed [\#467](https://github.com/pdepend/pdepend/pull/467) Use the HOME env variable also for Windows. (Issue [\#447](https://github.com/pdepend/pdepend/issue/447) )
+- Fixed [\#475](https://github.com/pdepend/pdepend/pull/475) Fixed [\#474](https://github.com/pdepend/pdepend/issues/474) typed property visibility 
+- Fixed [\#476](https://github.com/pdepend/pdepend/pull/476) Fixed [\#473](https://github.com/pdepend/pdepend/issues/473) handle skipped variable in destructuring array
+- Fixed [\#478](https://github.com/pdepend/pdepend/pull/478) Fixed [\#472](https://github.com/pdepend/pdepend/issues/472) Use the current token instead of the first inner one to determine the class start.
+- Fixed [\#483](https://github.com/pdepend/pdepend/pull/483) Fixed bool flip in parseEscapedAstLiteralString()
+- Fixed [\#479](https://github.com/pdepend/pdepend/pull/479) Fixed [\#299](https://github.com/pdepend/pdepend/issues/299) Class constant expression declaration.
+- Changed: Tidelift language ( [\#460](https://github.com/pdepend/pdepend/pull/460), [\#461](https://github.com/pdepend/pdepend/pull/461) and [\#462](https://github.com/pdepend/pdepend/pull/462) )
+- Changed: Interal cleanup with refactoring and adding missing PHPDoc ( [\#477](https://github.com/pdepend/pdepend/pull/477), [\#484](https://github.com/pdepend/pdepend/pull/484) and [\#485](https://github.com/pdepend/pdepend/pull/485) ) 
+
 pdepend-2.7.1 (2020/02/12)
 ==========================
 
@@ -644,4 +684,3 @@ archive as distribution format.
   refactoring done. Parser moved into a version specific parser class.
 - Implemented #178: Provide configuration option for the cache 
   directory. Implemented in commit #00ed8ec.
-

@@ -71,7 +71,12 @@ abstract class PHPParserVersion74 extends PHPParserVersion73
             Tokens::T_CALLABLE,
             Tokens::T_SELF,
         ))) {
-            return $this->parseTypeHint();
+            $type = $this->parseTypeHint();
+            $declaration = $this->parseFieldDeclaration();
+            $declaration->prependChild($type);
+            $declaration->setModifiers($modifiers);
+
+            return $declaration;
         }
 
         return parent::parseUnknownDeclaration($tokenType, $modifiers);
@@ -106,7 +111,8 @@ abstract class PHPParserVersion74 extends PHPParserVersion73
 
         $closure = $this->builder->buildAstClosure();
         $closure->setReturnsByReference($this->parseOptionalByReference());
-        $closure->addChild($this->parseFormalParameters());
+        $closure->addChild($this->parseFormalParameters($closure));
+        $closure = $this->parseCallableDeclarationAddition($closure);
 
         $closure->addChild(
             $this->buildReturnStatement(
@@ -120,6 +126,7 @@ abstract class PHPParserVersion74 extends PHPParserVersion73
     /**
      * Override PHP 7.3 checkEllipsisInExpressionSupport to stop throwing the
      * parsing exception.
+     * @return void
      */
     protected function checkEllipsisInExpressionSupport()
     {

@@ -57,6 +57,8 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 class PdependExtension extends SymfonyExtension
 {
     /**
+     * @param array<array<array<array<string>>>> $configs
+     * @return void
      * {@inheritDoc}
      */
     public function load(array $configs, ContainerBuilder $container)
@@ -102,6 +104,10 @@ class PdependExtension extends SymfonyExtension
         $configurationDefinition->setArguments(array($settings));
     }
 
+    /**
+     * @param array<string, array<string, string>> $config
+     * @return \stdClass
+     */
     private function createSettings($config)
     {
         $settings = new \stdClass();
@@ -109,6 +115,7 @@ class PdependExtension extends SymfonyExtension
         $settings->cache           = new \stdClass();
         $settings->cache->driver = $config['cache']['driver'];
         $settings->cache->location = $config['cache']['location'];
+        $settings->cache->ttl = $config['cache']['ttl'];
 
         $settings->imageConvert             = new \stdClass();
         $settings->imageConvert->fontSize   = $config['image_convert']['font_size'];

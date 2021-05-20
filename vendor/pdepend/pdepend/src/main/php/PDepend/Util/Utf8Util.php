@@ -52,20 +52,23 @@ namespace PDepend\Util;
  */
 final class Utf8Util
 {
+    /**
+     * @param string $raw
+     * @return string
+     */
     public static function ensureEncoding($raw)
     {
+        $encoding = 'UTF8';
         if (function_exists('mb_detect_encoding')) {
-            $encoding = mb_detect_encoding($raw);
-        } else {
-            $encoding = 'UTF8';
+            $encoding = mb_detect_encoding($raw) ?: $encoding;
         }
 
         $text = '';
         if (function_exists('iconv')) {
-            $text = @iconv($encoding, 'UTF8//IGNORE', $raw);
+            $text = @iconv($encoding, 'UTF8//IGNORE', $raw) ?: '';
         }
 
-        if ('' == $text) {
+        if ($text === '') {
             $text = utf8_encode($raw);
         }
 
